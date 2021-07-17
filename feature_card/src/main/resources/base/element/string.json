@@ -11,6 +11,22 @@
     {
       "name": "mainability_HelloWorld",
       "value": "Hello World"
+    },
+    {
+      "name": "widget_newsability_description",
+      "value": "This is a WidgetAbility"
+    },
+    {
+      "name": "feature_card_NewsAbility",
+      "value": "feature_card_NewsAbility"
+    },
+    {
+      "name": "widget_title",
+      "value": "Title"
+    },
+    {
+      "name": "widget_introduction",
+      "value": "Introduction"
     }
   ]
 }
