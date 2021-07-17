@@ -6,6 +6,7 @@ import com.gh.app.feature_card.widget.controller.FormController;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.ProviderFormInfo;
 import ohos.aafwk.content.Intent;
+import ohos.agp.components.ComponentProvider;
 import ohos.app.Context;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
@@ -29,7 +30,15 @@ public class WidgetImpl extends FormController {
     @Override
     public ProviderFormInfo bindFormData() {
         HiLog.info(TAG, "bind form data when create form");
-        return new ProviderFormInfo(RESOURCE_ID_MAP.get(dimension), context);
+        ProviderFormInfo providerFormInfo = new ProviderFormInfo(RESOURCE_ID_MAP.get(dimension), context);
+
+        ComponentProvider componentProvider = new ComponentProvider(RESOURCE_ID_MAP.get(dimension), context);
+        componentProvider.setImageContent(ResourceTable.Id_iv_img, ResourceTable.Media_icon_header_bai);
+        componentProvider.setText(ResourceTable.Id_tv_text1, "皮哥真牛逼");
+        componentProvider.setText(ResourceTable.Id_tv_text2, "我要向皮哥学习");
+        providerFormInfo.mergeActions(componentProvider);
+
+        return providerFormInfo;
     }
 
     @Override

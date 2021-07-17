@@ -48,7 +48,7 @@
             "scheduledUpdateTime": "10:30",
             "defaultDimension": "2*2",
             "name": "widget",
-            "description": "This is a service widget",
+            "description": "新闻",
             "colorMode": "auto",
             "type": "Java",
             "supportDimensions": [

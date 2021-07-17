@@ -7,9 +7,10 @@
     ohos:remote="true">
 
     <Image
+        ohos:id="$+id:iv_img"
         ohos:height="60vp"
         ohos:width="60vp"
-        ohos:image_src="$media:form_grid_pattern_widget_default_image_2"
+        ohos:image_src="$media:icon_header_bai"
         ohos:scale_mode="zoom_start"
         ohos:start_margin="12vp"
         ohos:top_margin="12vp"/>
@@ -24,6 +25,7 @@
         ohos:start_margin="12vp">
 
         <Text
+            ohos:id="$+id:tv_text1"
             ohos:height="match_content"
             ohos:width="match_parent"
             ohos:text="$string:widget_title"
@@ -33,6 +35,7 @@
             ohos:truncation_mode="ellipsis_at_end"/>
 
         <Text
+            ohos:id="$+id:tv_text2"
             ohos:height="match_content"
             ohos:width="match_parent"
             ohos:text="$string:widget_introduction"
