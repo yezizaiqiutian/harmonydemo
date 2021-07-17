@@ -33,7 +33,7 @@
         "launchType": "standard"
       },
       {
-        "name": "com.gh.app.feature_card.widget.NewsAbility",
+        "name": "com.gh.app.feature_card.widget.news_widget.NewsAbility",
         "icon": "$media:icon",
         "description": "$string:widget_newsability_description",
         "formsEnabled": true,

@@ -1,4 +1,4 @@
-package com.gh.app.feature_card.widget;
+package com.gh.app.feature_card.widget.news_widget;
 
 import com.gh.app.feature_card.widget.controller.FormController;
 import com.gh.app.feature_card.widget.controller.FormControllerManager;

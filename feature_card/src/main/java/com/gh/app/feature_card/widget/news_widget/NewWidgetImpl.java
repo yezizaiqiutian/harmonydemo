@@ -1,4 +1,4 @@
-package com.gh.app.feature_card.widget.widget;
+package com.gh.app.feature_card.widget.news_widget;
 
 import com.gh.app.feature_card.ResourceTable;
 import com.gh.app.feature_card.widget.controller.FormController;
@@ -14,8 +14,8 @@ import ohos.hiviewdfx.HiLogLabel;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WidgetImpl extends FormController {
-    private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, WidgetImpl.class.getName());
+public class NewWidgetImpl extends FormController {
+    private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, NewWidgetImpl.class.getName());
     private static final int DEFAULT_DIMENSION_2X2 = 2;
     private static final Map<Integer, Integer> RESOURCE_ID_MAP = new HashMap<>();
 
@@ -23,7 +23,7 @@ public class WidgetImpl extends FormController {
         RESOURCE_ID_MAP.put(DEFAULT_DIMENSION_2X2, ResourceTable.Layout_form_grid_pattern_widget_2_2);
     }
 
-    public WidgetImpl(Context context, String formName, Integer dimension) {
+    public NewWidgetImpl(Context context, String formName, Integer dimension) {
         super(context, formName, dimension);
     }
 
