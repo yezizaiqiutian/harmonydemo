@@ -5,20 +5,20 @@ apply plugin: 'com.huawei.ohos.app'
 ohos {
     signingConfigs {
         debug {
-            storeFile file('/Users/gh/.ohos/config/auto_debug_270086000122215547.p12')
-            storePassword '00000018B766DE27A4865E4FDD6691043D760F271D2CA9509BE1C11927AC8BA7E4EB135EFD963B82'
-            keyAlias = 'debugKey'
-            keyPassword '000000184A413BE92C8D34343DCAAF4E04D714661DEFD9FAB36C4AF22DAAFC1D33A7176100B8C1C7'
-            signAlg = 'SHA256withECDSA'
-            profile file('/Users/gh/.ohos/config/auto_debug_harmonydemo_270086000122215547.p7b')
-            certpath file('/Users/gh/.ohos/config/auto_debug_270086000122215547.cer')
-//            storeFile rootProject.file('auto_debug_270086000122215547.p12')
+//            storeFile file('/Users/gh/.ohos/config/auto_debug_270086000122215547.p12')
 //            storePassword '00000018B766DE27A4865E4FDD6691043D760F271D2CA9509BE1C11927AC8BA7E4EB135EFD963B82'
 //            keyAlias = 'debugKey'
 //            keyPassword '000000184A413BE92C8D34343DCAAF4E04D714661DEFD9FAB36C4AF22DAAFC1D33A7176100B8C1C7'
 //            signAlg = 'SHA256withECDSA'
-//            profile rootProject.file('auto_debug_harmonydemo_270086000122215547.p7b')
-//            certpath rootProject.file('auto_debug_270086000122215547.cer')
+//            profile file('/Users/gh/.ohos/config/auto_debug_harmonydemo_270086000122215547.p7b')
+//            certpath file('/Users/gh/.ohos/config/auto_debug_270086000122215547.cer')
+            storeFile rootProject.file('auto_debug_270086000122215547.p12')
+            storePassword '00000018B766DE27A4865E4FDD6691043D760F271D2CA9509BE1C11927AC8BA7E4EB135EFD963B82'
+            keyAlias = 'debugKey'
+            keyPassword '000000184A413BE92C8D34343DCAAF4E04D714661DEFD9FAB36C4AF22DAAFC1D33A7176100B8C1C7'
+            signAlg = 'SHA256withECDSA'
+            profile rootProject.file('auto_debug_harmonydemo_270086000122215547.p7b')
+            certpath rootProject.file('auto_debug_270086000122215547.cer')
         }
     }
     compileSdkVersion 5
