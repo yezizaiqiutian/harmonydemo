@@ -33,6 +33,7 @@
         "launchType": "standard"
       },
       {
+        "visible": true,
         "name": "com.gh.app.feature_card.widget.news_widget.NewsAbility",
         "icon": "$media:icon",
         "description": "$string:widget_newsability_description",
@@ -47,7 +48,7 @@
             "isDefault": true,
             "scheduledUpdateTime": "10:30",
             "defaultDimension": "2*2",
-            "name": "widget",
+            "name": "news_widget",
             "description": "新闻",
             "colorMode": "auto",
             "type": "Java",

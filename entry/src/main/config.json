@@ -36,8 +36,8 @@
         "orientation": "unspecified",
         "name": "com.gh.app.harmonydemo.MainAbility",
         "icon": "$media:icon",
-        "description": "$string:mainability_description",
-        "label": "$string:entry_MainAbility",
+        "description": "$string:app_name",
+        "label": "$string:app_name",
         "type": "page",
         "launchType": "standard"
       }
