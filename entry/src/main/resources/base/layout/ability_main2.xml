@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:alignment="center"
+    ohos:orientation="vertical">
+
+    <DirectionalLayout
+        ohos:id="$+id:main_content"
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        ohos:weight="1"/>
+
+    <RadioContainer
+        ohos:id="$+id:radio_container"
+        ohos:height="60vp"
+        ohos:width="match_parent"
+        ohos:layout_alignment="horizontal_center"
+        ohos:orientation="horizontal">
+
+        <RadioButton
+            ohos:id="$+id:radio_button_1"
+            ohos:height="match_parent"
+            ohos:width="match_content"
+            ohos:check_element="null"
+            ohos:marked="true"
+            ohos:text="首页"
+            ohos:text_color_off="#000000"
+            ohos:text_color_on="#00ffff"
+            ohos:text_size="14fp"
+            ohos:weight="1"/>
+
+        <RadioButton
+            ohos:id="$+id:radio_button_2"
+            ohos:height="match_parent"
+            ohos:width="match_content"
+            ohos:check_element="null"
+            ohos:text="新闻"
+            ohos:text_color_off="#000000"
+            ohos:text_color_on="#00ffff"
+            ohos:text_size="14fp"
+            ohos:weight="1"/>
+
+        <RadioButton
+            ohos:id="$+id:radio_button_3"
+            ohos:height="match_parent"
+            ohos:width="match_content"
+            ohos:check_element="null"
+            ohos:text="更多"
+            ohos:text_color_off="#000000"
+            ohos:text_color_on="#00ffff"
+            ohos:text_size="14fp"
+            ohos:weight="1"/>
+
+        <RadioButton
+            ohos:id="$+id:radio_button_4"
+            ohos:height="match_parent"
+            ohos:width="match_content"
+            ohos:check_element="null"
+            ohos:text="我的"
+            ohos:text_color_off="#000000"
+            ohos:text_color_on="#00ffff"
+            ohos:text_size="14fp"
+            ohos:weight="1"/>
+
+    </RadioContainer>
+
+</DirectionalLayout>

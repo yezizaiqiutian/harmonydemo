@@ -11,6 +11,9 @@ import ohos.agp.components.RadioContainer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 暂时无法解决PageSlider与Fraction绑定的问题
+ */
 public class MainAbilitySlice extends AbilitySlice {
     @Override
     public void onStart(Intent intent) {
