@@ -1,7 +1,10 @@
-package com.gh.app.harmonydemo.slice;
+package com.gh.app.harmonydemo.ui.main.slice;
 
-import com.gh.app.harmonydemo.MainPageFraction;
+import com.gh.app.harmonydemo.ui.main.fraction.MainPageFraction;
 import com.gh.app.harmonydemo.ResourceTable;
+import com.gh.app.harmonydemo.ui.main.fraction.MinePageFraction;
+import com.gh.app.harmonydemo.ui.main.fraction.MorePageFraction;
+import com.gh.app.harmonydemo.ui.main.fraction.NewsPageFraction;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.ability.fraction.FractionAbility;
@@ -26,10 +29,10 @@ public class MainAbilitySlice2 extends AbilitySlice {
 
     private void initView() {
         fractionList.clear();
-        fractionList.add(new MainPageFraction("111"));
-        fractionList.add(new MainPageFraction("222"));
-        fractionList.add(new MainPageFraction("333"));
-        fractionList.add(new MainPageFraction("444"));
+        fractionList.add(new MainPageFraction("首页"));
+        fractionList.add(new NewsPageFraction("新闻"));
+        fractionList.add(new MorePageFraction("更多"));
+        fractionList.add(new MinePageFraction("我的"));
 
         FractionScheduler fractionScheduler = ((FractionAbility) getAbility()).getFractionManager().startFractionScheduler();
         for (Fraction fraction : fractionList) {

@@ -1,6 +1,6 @@
-package com.gh.app.harmonydemo.slice;
+package com.gh.app.harmonydemo.ui.main.slice;
 
-import com.gh.app.harmonydemo.MainPageProvider;
+import com.gh.app.harmonydemo.ui.main.MainPageProvider;
 import com.gh.app.harmonydemo.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;

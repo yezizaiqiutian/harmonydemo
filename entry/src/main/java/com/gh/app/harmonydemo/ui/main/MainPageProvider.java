@@ -1,4 +1,4 @@
-package com.gh.app.harmonydemo;
+package com.gh.app.harmonydemo.ui.main;
 
 import ohos.agp.colors.RgbColor;
 import ohos.agp.components.*;

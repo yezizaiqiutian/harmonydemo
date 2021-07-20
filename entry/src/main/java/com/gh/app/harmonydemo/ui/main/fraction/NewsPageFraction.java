@@ -1,14 +1,18 @@
-package com.gh.app.harmonydemo;
+package com.gh.app.harmonydemo.ui.main.fraction;
 
+import com.gh.app.harmonydemo.ResourceTable;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.content.Intent;
-import ohos.agp.components.*;
+import ohos.agp.components.Component;
+import ohos.agp.components.ComponentContainer;
+import ohos.agp.components.LayoutScatter;
+import ohos.agp.components.Text;
 
-public class MainPageFraction extends Fraction {
+public class NewsPageFraction extends Fraction {
 
     private String title;
 
-    public MainPageFraction(String  title) {
+    public NewsPageFraction(String  title) {
         this.title = title;
     }
 

@@ -1,6 +1,6 @@
-package com.gh.app.harmonydemo;
+package com.gh.app.harmonydemo.ui.main;
 
-import com.gh.app.harmonydemo.slice.MainAbilitySlice2;
+import com.gh.app.harmonydemo.ui.main.slice.MainAbilitySlice2;
 import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.content.Intent;
 
