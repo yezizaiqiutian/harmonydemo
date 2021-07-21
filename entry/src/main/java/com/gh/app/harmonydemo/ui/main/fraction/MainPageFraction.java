@@ -39,7 +39,6 @@ public class MainPageFraction extends Fraction {
         MainPageItemProvider mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(mainPageItemProvider);
 
-
         NetUtils.getNet(getContext(), new HttpOnNextListener<List<NewsBean>>() {
             @Override
             public Flowable onConnect(ApiService service) {
@@ -56,21 +55,6 @@ public class MainPageFraction extends Fraction {
                 super.onError(e);
             }
         });
-
-//        ApiStore.getBaseService(ApiService.class).getNewsList()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(OpenHarmonySchedulers.mainThread())
-//                .subscribe(new Consumer<BaseResultEntity<List<NewsBean>>>() {
-//                    @Override
-//                    public void accept(BaseResultEntity<List<NewsBean>> list) throws Throwable {
-//                        mainPageItemProvider.updata(list.getData());
-//                    }
-//                }, new Consumer<Throwable>() {
-//                    @Override
-//                    public void accept(Throwable throwable) throws Throwable {
-//                        new ToastDialog(getFractionAbility().getContext()).setText("接口获取失败:" + throwable.getMessage()).show();
-//                    }
-//                });
     }
 
 }

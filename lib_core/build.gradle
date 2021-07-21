@@ -34,5 +34,20 @@ dependencies {
     api 'io.openharmony.tpc.thirdlib:Rxohos:1.0.0'
 //    api 'com.wawj.harmony:harmony-rxbus:1.0.0'
 //    api 'io.openharmony.tpc.thirdlib:MagicProgressWidget:1.0.1'
+
+
+
+
+    /*ToyCar*/
+    //https://harmonyos.51cto.com/posts/2329
+    api 'com.github.boxuanjia:toycar:0.0.3'
+    /*RxJava*/
+    api 'io.reactivex.rxjava2:rxjava:2.2.19'
+    /*OkHttp*/
+//    api 'com.squareup.okhttp3:okhttp:4.8.0'
+    /*RxHarmony*/
+    api 'com.github.boxuanjia:rxharmony:1.0.0'
+    /*RxHarmonyLife*/
+    api 'com.github.boxuanjia:rxharmonylife:1.0.2'
 }
 
