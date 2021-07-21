@@ -3,15 +3,12 @@ package com.gh.app.harmonydemo.ui.main.fraction;
 import com.gh.app.harmonydemo.ResourceTable;
 import com.gh.app.harmonydemo.bean.NewsBean;
 import com.gh.app.harmonydemo.net.ApiService;
-import com.gh.app.lib_core.http.ApiStore;
-import com.gh.app.lib_core.http.BaseResultEntity;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.openharmony.schedulers.OpenHarmonySchedulers;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import com.gh.app.harmonydemo.net.HttpOnNextListener;
+import com.gh.app.harmonydemo.net.NetUtils;
+import io.reactivex.rxjava3.core.Flowable;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
-import ohos.agp.window.dialog.ToastDialog;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 
@@ -42,20 +39,38 @@ public class MainPageFraction extends Fraction {
         MainPageItemProvider mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(mainPageItemProvider);
 
-        ApiStore.getBaseService(ApiService.class).getNewsList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(OpenHarmonySchedulers.mainThread())
-                .subscribe(new Consumer<BaseResultEntity<List<NewsBean>>>() {
-                    @Override
-                    public void accept(BaseResultEntity<List<NewsBean>> list) throws Throwable {
-                        mainPageItemProvider.updata(list.getData());
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Throwable {
-                        new ToastDialog(getFractionAbility().getContext()).setText("接口获取失败:" + throwable.getMessage()).show();
-                    }
-                });
+
+        NetUtils.getNet(getContext(), new HttpOnNextListener<List<NewsBean>>() {
+            @Override
+            public Flowable onConnect(ApiService service) {
+                return service.getNewsList();
+            }
+
+            @Override
+            public void onNext(List<NewsBean> list) {
+                mainPageItemProvider.updata(list);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+        });
+
+//        ApiStore.getBaseService(ApiService.class).getNewsList()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(OpenHarmonySchedulers.mainThread())
+//                .subscribe(new Consumer<BaseResultEntity<List<NewsBean>>>() {
+//                    @Override
+//                    public void accept(BaseResultEntity<List<NewsBean>> list) throws Throwable {
+//                        mainPageItemProvider.updata(list.getData());
+//                    }
+//                }, new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Throwable {
+//                        new ToastDialog(getFractionAbility().getContext()).setText("接口获取失败:" + throwable.getMessage()).show();
+//                    }
+//                });
     }
 
 }
