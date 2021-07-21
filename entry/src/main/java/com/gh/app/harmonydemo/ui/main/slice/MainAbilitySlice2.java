@@ -11,6 +11,7 @@ import ohos.aafwk.ability.fraction.FractionAbility;
 import ohos.aafwk.ability.fraction.FractionScheduler;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.RadioContainer;
+import ohos.agp.window.dialog.ToastDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ public class MainAbilitySlice2 extends AbilitySlice {
     }
 
     private void initView() {
+        new ToastDialog(getContext()).setText("欢迎回来").show();
+
         fractionList.clear();
         fractionList.add(new MainPageFraction("首页"));
         fractionList.add(new NewsPageFraction("新闻"));

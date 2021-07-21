@@ -1,0 +1,33 @@
+{
+  "app": {
+    "bundleName": "com.gh.app.harmonydemo",
+    "vendor": "gh",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+    "default": {
+      "network": {
+        "cleartextTraffic": true
+      }
+    }
+  },
+  "module": {
+    "package": "com.gh.app.lib_core",
+    "deviceType": [
+      "phone"
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "lib_core",
+      "moduleType": "har"
+    }
+  }
+}

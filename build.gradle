@@ -29,6 +29,8 @@ ohos {
 
 buildscript {
     repositories {
+        maven { url 'https://jitpack.io' }
+
         maven {
             url 'https://repo.huaweicloud.com/repository/maven/'
         }
@@ -44,7 +46,9 @@ buildscript {
 }
 
 allprojects {
+
     repositories {
+        maven { url 'https://jitpack.io' }
         maven {
             url 'https://repo.huaweicloud.com/repository/maven/'
         }

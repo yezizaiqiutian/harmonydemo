@@ -21,6 +21,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
     testImplementation 'junit:junit:4.13'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
+
+//    api 'com.github.yezizaiqiutian:netlib:0.0.2'
+
+    implementation project(':lib_core')
+
+
+
 }
 decc {
     supportType = ['html','xml']

@@ -1,9 +1,12 @@
 package com.gh.app.harmonydemo.bean;
 
-public class NewsBean {
+import java.io.Serializable;
+
+public class NewsBean implements Serializable {
 
     private String title;
     private String content;
+    private String url;
 
     public NewsBean(String title, String content) {
         this.title = title;
@@ -24,5 +27,13 @@ public class NewsBean {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

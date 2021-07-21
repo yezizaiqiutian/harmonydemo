@@ -2,14 +2,25 @@ package com.gh.app.harmonydemo.ui.main.fraction;
 
 import com.gh.app.harmonydemo.ResourceTable;
 import com.gh.app.harmonydemo.bean.NewsBean;
+import com.gh.app.harmonydemo.net.ApiService;
+import com.gh.app.lib_core.http.ApiStore;
+import com.gh.app.lib_core.http.BaseResultEntity;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.openharmony.schedulers.OpenHarmonySchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
+import ohos.agp.window.dialog.ToastDialog;
+import ohos.hiviewdfx.HiLog;
+import ohos.hiviewdfx.HiLogLabel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageFraction extends Fraction {
+    private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, MainPageFraction.class.getName());
+
 
     private String title;
 
@@ -28,20 +39,23 @@ public class MainPageFraction extends Fraction {
         super.onStart(intent);
 
         ListContainer listContainer = (ListContainer) getComponent().findComponentById(ResourceTable.Id_list_container);
-        MainPageItemProvider mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), getData());
+        MainPageItemProvider mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(mainPageItemProvider);
 
-    }
-
-    private List<NewsBean> getData() {
-        List<NewsBean> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            list.add(new NewsBean("高祥","祥哥很牛逼"));
-            list.add(new NewsBean("蔡奇峰","峰哥很牛逼"));
-            list.add(new NewsBean("李伟","伟哥很牛逼,嗯,这个确实很牛逼"));
-            list.add(new NewsBean("新闻列表1","吴亦凡..................."));
-        }
-        return list;
+        ApiStore.getBaseService(ApiService.class).getNewsList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(OpenHarmonySchedulers.mainThread())
+                .subscribe(new Consumer<BaseResultEntity<List<NewsBean>>>() {
+                    @Override
+                    public void accept(BaseResultEntity<List<NewsBean>> list) throws Throwable {
+                        mainPageItemProvider.updata(list.getData());
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Throwable {
+                        new ToastDialog(getFractionAbility().getContext()).setText("接口获取失败:" + throwable.getMessage()).show();
+                    }
+                });
     }
 
 }

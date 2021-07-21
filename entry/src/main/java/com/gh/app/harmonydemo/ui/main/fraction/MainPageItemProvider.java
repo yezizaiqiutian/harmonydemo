@@ -17,6 +17,11 @@ public class MainPageItemProvider extends BaseItemProvider {
         this.list = list;
     }
 
+    public void updata(List<NewsBean> list) {
+        this.list = list;
+        notifyDataChanged();
+    }
+
     @Override
     public int getCount() {
         return list.size();

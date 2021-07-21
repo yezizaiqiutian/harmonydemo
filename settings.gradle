@@ -1,1 +1,1 @@
-include ':entry', ':feature_card'
+include ':entry', ':feature_card', ':lib_core'

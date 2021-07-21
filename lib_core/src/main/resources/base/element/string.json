@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "lib_core_CoreAbility",
+      "value": "lib_core_CoreAbility"
+    },
+    {
+      "name": "coreability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "coreability_HelloWorld",
+      "value": "Hello World"
+    }
+  ]
+}
