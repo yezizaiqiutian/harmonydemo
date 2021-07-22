@@ -18,36 +18,21 @@ ohos {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
+
+    //网络
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.retrofit2:converter-gson:2.9.0'
     api 'com.squareup.okhttp3:okhttp:4.9.1'
     api 'com.squareup.okhttp3:logging-interceptor:4.9.1'
     api "com.squareup.retrofit2:adapter-rxjava3:2.9.0"
-//    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-//    api 'com.wawj.harmony:glide:1.0.7'
-//    api 'com.wawj.harmony:glide-gif_decoder:1.0.7'
-//    api 'com.wawj.harmony:glide-gif_encoder:1.0.7'
-//    api 'com.wawj.harmony:glide-disklrucache:1.0.7'
-//    api 'io.reactivex.rxjava2:rxjava:2.2.15'
-//    api 'com.wawj.harmony:harmony-rxohos:1.0.0'
     api 'io.reactivex.rxjava3:rxjava:3.0.3'
     api 'io.openharmony.tpc.thirdlib:Rxohos:1.0.0'
-//    api 'com.wawj.harmony:harmony-rxbus:1.0.0'
-//    api 'io.openharmony.tpc.thirdlib:MagicProgressWidget:1.0.1'
 
-
-
-
-    /*ToyCar*/
+    //图片    ToyCar
     //https://harmonyos.51cto.com/posts/2329
     api 'com.github.boxuanjia:toycar:0.0.3'
-    /*RxJava*/
     api 'io.reactivex.rxjava2:rxjava:2.2.19'
-    /*OkHttp*/
-//    api 'com.squareup.okhttp3:okhttp:4.8.0'
-    /*RxHarmony*/
     api 'com.github.boxuanjia:rxharmony:1.0.0'
-    /*RxHarmonyLife*/
     api 'com.github.boxuanjia:rxharmonylife:1.0.2'
 }
 

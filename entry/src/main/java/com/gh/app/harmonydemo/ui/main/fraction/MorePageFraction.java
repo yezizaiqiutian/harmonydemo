@@ -1,14 +1,14 @@
 package com.gh.app.harmonydemo.ui.main.fraction;
 
 import com.gh.app.harmonydemo.ResourceTable;
-import ohos.aafwk.ability.fraction.Fraction;
+import com.gh.app.lib_core.base.BsaeFraction;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.Component;
 import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.LayoutScatter;
 import ohos.agp.components.Text;
 
-public class MorePageFraction extends Fraction {
+public class MorePageFraction extends BsaeFraction {
 
     private String title;
 

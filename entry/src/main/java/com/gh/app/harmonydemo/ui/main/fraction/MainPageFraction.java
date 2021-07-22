@@ -5,8 +5,8 @@ import com.gh.app.harmonydemo.bean.NewsBean;
 import com.gh.app.harmonydemo.net.ApiService;
 import com.gh.app.harmonydemo.net.HttpOnNextListener;
 import com.gh.app.harmonydemo.net.NetUtils;
+import com.gh.app.lib_core.base.BsaeFraction;
 import io.reactivex.rxjava3.core.Flowable;
-import ohos.aafwk.ability.fraction.Fraction;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
 import ohos.hiviewdfx.HiLog;
@@ -15,7 +15,7 @@ import ohos.hiviewdfx.HiLogLabel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPageFraction extends Fraction {
+public class MainPageFraction extends BsaeFraction {
     private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, MainPageFraction.class.getName());
 
 
