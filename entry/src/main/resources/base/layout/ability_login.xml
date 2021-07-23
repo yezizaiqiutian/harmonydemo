@@ -11,7 +11,7 @@
         ohos:height="40vp"
         ohos:width="match_parent"
         ohos:background_element="$graphic:bg_input"
-        ohos:margin="10vp"
+        ohos:margin="20vp"
         ohos:text_alignment="vertical_center|right"
         ohos:text_size="20fp"/>
 
@@ -20,7 +20,7 @@
         ohos:height="40vp"
         ohos:width="match_parent"
         ohos:background_element="$graphic:bg_input"
-        ohos:margin="10vp"
+        ohos:margin="20vp"
         ohos:text_alignment="vertical_center|right"
         ohos:text_size="20fp"/>
 
@@ -28,7 +28,7 @@
         ohos:id="$+id:btn_login"
         ohos:height="match_content"
         ohos:width="match_parent"
-        ohos:margin="10vp"
+        ohos:margin="20vp"
         ohos:text="登录"
         ohos:text_size="20fp"/>
 

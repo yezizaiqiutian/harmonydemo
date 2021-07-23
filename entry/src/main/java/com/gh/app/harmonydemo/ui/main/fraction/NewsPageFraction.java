@@ -23,7 +23,7 @@ public class NewsPageFraction extends BsaeFraction {
 
     @Override
     protected Component onComponentAttached(LayoutScatter scatter, ComponentContainer container, Intent intent) {
-        Component component = scatter.parse(ResourceTable.Layout_fraction_mainpage, container, false);
+        Component component = scatter.parse(ResourceTable.Layout_fraction_news, container, false);
         return component;
     }
 
