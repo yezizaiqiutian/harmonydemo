@@ -16,10 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageFraction extends BsaeFraction {
+
     private static final HiLogLabel TAG = new HiLogLabel(HiLog.DEBUG, 0x0, MainPageFraction.class.getName());
-
-
     private String title;
+
+    private ListContainer listContainer;
+    private Text tv_empty;
+    private MainPageItemProvider mainPageItemProvider;
 
     public MainPageFraction(String title) {
         this.title = title;
@@ -35,11 +38,26 @@ public class MainPageFraction extends BsaeFraction {
     protected void onStart(Intent intent) {
         super.onStart(intent);
 
-        ListContainer listContainer = (ListContainer) getComponent().findComponentById(ResourceTable.Id_list_container);
-        MainPageItemProvider mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), new ArrayList<>());
+        listContainer = (ListContainer) getComponent().findComponentById(ResourceTable.Id_list_container);
+        tv_empty = (Text) getComponent().findComponentById(ResourceTable.Id_tv_empty);
+
+        mainPageItemProvider = new MainPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(mainPageItemProvider);
 
-        NetUtils.getNet(getContext(), new HttpOnNextListener<List<NewsBean>>() {
+        getNet();
+
+        tv_empty.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                getNet();
+            }
+        });
+
+
+    }
+
+    private void getNet() {
+        NetUtils.getNet(getFractionAbility().getContext(), new HttpOnNextListener<List<NewsBean>>() {
             @Override
             public Flowable onConnect(ApiService service) {
                 return service.getNewsList();
@@ -47,12 +65,15 @@ public class MainPageFraction extends BsaeFraction {
 
             @Override
             public void onNext(List<NewsBean> list) {
+                listContainer.setVisibility(Component.VISIBLE);
+                tv_empty.setVisibility(Component.HIDE);
                 mainPageItemProvider.updata(list);
             }
 
             @Override
             public void onError(Throwable e) {
-                super.onError(e);
+                tv_empty.setVisibility(Component.VISIBLE);
+                listContainer.setVisibility(Component.HIDE);
             }
         });
     }

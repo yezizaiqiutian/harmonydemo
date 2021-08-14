@@ -12,4 +12,11 @@
         ohos:width="match_parent"
         ohos:layout_alignment="vertical_center"/>
 
+    <Text
+        ohos:id="$+id:tv_empty"
+        ohos:height="match_parent"
+        ohos:text="网络连接失败,点击重试"
+        ohos:width="match_parent"
+        ohos:text_alignment="center"/>
+
 </DirectionalLayout>

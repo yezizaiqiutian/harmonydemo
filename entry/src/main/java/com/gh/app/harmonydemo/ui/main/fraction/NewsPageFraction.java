@@ -17,13 +17,17 @@ public class NewsPageFraction extends BsaeFraction {
 
     private String title;
 
+    private ListContainer listContainer;
+    private Text tv_empty;
+    private NewsPageItemProvider newsPageItemProvider;
+
     public NewsPageFraction(String  title) {
         this.title = title;
     }
 
     @Override
     protected Component onComponentAttached(LayoutScatter scatter, ComponentContainer container, Intent intent) {
-        Component component = scatter.parse(ResourceTable.Layout_fraction_news, container, false);
+        Component component = scatter.parse(ResourceTable.Layout_fraction_mainpage, container, false);
         return component;
     }
 
@@ -31,9 +35,20 @@ public class NewsPageFraction extends BsaeFraction {
     protected void onStart(Intent intent) {
         super.onStart(intent);
 
-        ListContainer listContainer = (ListContainer) getComponent().findComponentById(ResourceTable.Id_list_container);
-        NewsPageItemProvider newsPageItemProvider = new NewsPageItemProvider(getFractionAbility(), new ArrayList<>());
+        listContainer = (ListContainer) getComponent().findComponentById(ResourceTable.Id_list_container);
+        tv_empty = (Text) getComponent().findComponentById(ResourceTable.Id_tv_empty);
+
+        newsPageItemProvider = new NewsPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(newsPageItemProvider);
+
+        getNet();
+
+        tv_empty.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                getNet();
+            }
+        });
 
         NetUtils.getNet(getContext(), new HttpOnNextListener<List<NewsBean>>() {
             @Override
@@ -49,6 +64,28 @@ public class NewsPageFraction extends BsaeFraction {
             @Override
             public void onError(Throwable e) {
                 super.onError(e);
+            }
+        });
+    }
+
+    private void getNet() {
+        NetUtils.getNet(getFractionAbility().getContext(), new HttpOnNextListener<List<NewsBean>>() {
+            @Override
+            public Flowable onConnect(ApiService service) {
+                return service.getNewsList();
+            }
+
+            @Override
+            public void onNext(List<NewsBean> list) {
+                listContainer.setVisibility(Component.VISIBLE);
+                tv_empty.setVisibility(Component.HIDE);
+                newsPageItemProvider.updata(list);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                tv_empty.setVisibility(Component.VISIBLE);
+                listContainer.setVisibility(Component.HIDE);
             }
         });
     }
