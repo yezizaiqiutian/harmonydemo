@@ -41,31 +41,24 @@ public class NewsPageFraction extends BsaeFraction {
         newsPageItemProvider = new NewsPageItemProvider(getFractionAbility(), new ArrayList<>());
         listContainer.setItemProvider(newsPageItemProvider);
 
-        getNet();
-
         tv_empty.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
-                getNet();
+                tv_empty.setText("加载中...");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        getNet();
+                    }
+                }).start();
             }
         });
 
-        NetUtils.getNet(getContext(), new HttpOnNextListener<List<NewsBean>>() {
-            @Override
-            public Flowable onConnect(ApiService service) {
-                return service.getNewsList();
-            }
-
-            @Override
-            public void onNext(List<NewsBean> list) {
-                newsPageItemProvider.updata(list);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                super.onError(e);
-            }
-        });
     }
 
     private void getNet() {
@@ -84,6 +77,7 @@ public class NewsPageFraction extends BsaeFraction {
 
             @Override
             public void onError(Throwable e) {
+                tv_empty.setText("网络连接失败,点击重试");
                 tv_empty.setVisibility(Component.VISIBLE);
                 listContainer.setVisibility(Component.HIDE);
             }

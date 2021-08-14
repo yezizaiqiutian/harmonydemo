@@ -49,10 +49,20 @@ public class MainPageFraction extends BsaeFraction {
         tv_empty.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
-                getNet();
+                tv_empty.setText("加载中...");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        getNet();
+                    }
+                }).start();
             }
         });
-
 
     }
 
@@ -72,6 +82,7 @@ public class MainPageFraction extends BsaeFraction {
 
             @Override
             public void onError(Throwable e) {
+                tv_empty.setText("网络连接失败,点击重试");
                 tv_empty.setVisibility(Component.VISIBLE);
                 listContainer.setVisibility(Component.HIDE);
             }
